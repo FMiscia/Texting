@@ -17,8 +17,11 @@ rsync -av francescomiscia@localhost:Documents/ ./Documents/
 #Deletes the folders/files not in the source directory
 rsync -av --delete source dest
 
-#Progress bar: -P
+#Progress bar -P and stats --stats
 rsync -avP source dest
 
 #Compress files: -z
 rsync -avz source dest
+
+#Sync based on checksum -c
+rsync -avc source dest
