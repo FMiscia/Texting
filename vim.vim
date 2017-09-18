@@ -58,6 +58,9 @@ N (repeat backward search)
 :%s /search_for_this/replace_with_this/gc (g means globally - confirm each replace)
 :%s /search/replace/gc (interactive global replace)
 :%s //foo/gc (if empty uses last search as parameter)
+:%s /\<word\>/gc (search for the complete word)
+/word/gj **/*.* (search the "word" globally without stop to the first match recursively in the all files of the project)
+:lw (list all the words found)
 set incsearch (incremental highlight of a search)
 set hlsearch - hls (highlight searched word)
 nohlsearch - nohl (disable hlsearch)
@@ -65,6 +68,7 @@ nohlsearch - nohl (disable hlsearch)
 # (go back to the previous word)
 nnoremap n nzz (remap n command to center the page at every search result))
 nnoremap N Nzz (remap N command to chenter the page at every search result)
+nnoremap ws :w<CR>:SwiftRun<CR> (map ws to save and run a swift file)
 
 #word uppercase/lowercase
 gu (moves the selection to lowercase)
@@ -78,7 +82,7 @@ ctrl+r {register} (pasting in insert mode)
 "_ (register for complete deletion, without cutting)
 reg (show registers)
 
-#row concatenation
+#line concatenation
 SHIFT+j (concatenate the row below)
 
 #code indent
@@ -120,6 +124,14 @@ set cursorline
 hi clear CursorLine (clear previous colorscheme)
 hi CursorLine ctermbg=232 (set background cursor line color to 232)
 
+#Swap lines,words and characters
+xp (swap current char with the next)
+Xp (swap current char with the previous)
+ddp (swap current line with the next)
+ddkkp (swap current line with the previous)
+dawelp (swap current word with the next)
+dawbP (swap current word with the previous)
+
 #Remapping command
 #example nnoremap ,h nohl <cr> #remapping  nohl + return with ,h
 nnoremap (n - normal mode, nore - recursive, map - mapping)
@@ -143,3 +155,8 @@ ctrl+ww (switch between text and file tree)
 
 #vim on terminal
 set t_Co=256 (enables 256 colors in vim for xterm-256)
+
+#Multi Cursor plugin
+ctrl+n (multi selection)
+ctrl+p (back)
+ctrl+x (jump a selection)
